@@ -24,6 +24,7 @@ module.exports = {
     root: __dirname,
     modulesDirectories: [
       'node_modules',
+      './app',
       './app/components'
     ],
     extensions: ['', '.js', '.jsx']
