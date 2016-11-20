@@ -11,7 +11,7 @@ describe('TodoSearch', () => {
     expect(TodoSearch).toExist();
   });
 
-  it('should call onSearch wwith entered input text', () => {
+  it('should call onSearch with entered input text', () => {
     var spy = expect.createSpy();
     var todoSearch = TestUtils.renderIntoDocument(<TodoSearch onSearch={spy}/>);
 
