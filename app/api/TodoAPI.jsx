@@ -1,4 +1,4 @@
-module.exports = {
+var TodoAPI = {
   setTodos: function(todos) {
     if(Array.isArray(todos)) {
       localStorage.setItem('todos', JSON.stringify(todos));
@@ -38,3 +38,5 @@ module.exports = {
     return filteredTodos;
   }
 };
+
+export default TodoAPI;

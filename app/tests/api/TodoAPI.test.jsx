@@ -1,5 +1,5 @@
-var expect = require('expect');
-var TodoAPI = require('../../api/TodoAPI');
+import expect from 'expect';
+import TodoAPI from 'api/TodoAPI';
 
 describe('TodoAPI', () => {
   beforeEach(() => {

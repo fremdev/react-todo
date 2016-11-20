@@ -1,11 +1,13 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var expect = require('expect');
-var $ = require('jQuery');
-var TestUtils = require('react-addons-test-utils');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import {Provider} from 'react-redux';
+import expect from 'expect';
+import $ from 'jQuery';
+import TestUtils from 'react-addons-test-utils';
 
-var TodoList = require('TodoList');
-var Todo = require('Todo');
+import ConnectedTodoList, {TodoList} from 'TodoList';
+import ConnectedTodo, {Todo} from 'Todo';
+import configure from 'store/configureStore';
 
 describe('TodoList', () => {
   it('should exist', () => {
@@ -15,14 +17,28 @@ describe('TodoList', () => {
   it('should render one Todo component for each todo item', () => {
     var todos = [{
       id: 1,
-      text: 'Do first'
+      text: 'Do first',
+      completed: false,
+      completedAt: undefined,
+      createdAt: 500
     }, {
       id: 2,
-      text: 'Do second'
+      text: 'Do second',
+      completed: false,
+      completedAt: undefined,
+      createdAt: 500
     }];
 
-    var todoList = TestUtils.renderIntoDocument(<TodoList todos={todos}/>);
-    var todoComponents = TestUtils.scryRenderedComponentsWithType(todoList, Todo);
+    var store = configure({
+      todos
+    });
+    var provider = TestUtils.renderIntoDocument(
+      <Provider store={store}>
+        <ConnectedTodoList/>
+      </Provider>
+    )
+    var todoList = TestUtils.scryRenderedComponentsWithType(provider, ConnectedTodoList)[0];
+    var todoComponents = TestUtils.scryRenderedComponentsWithType(todoList, ConnectedTodo);
 
     expect(todoComponents.length).toBe(todos.length);
   });

@@ -1,10 +1,10 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var expect = require('expect');
-var $ = require('jQuery');
-var TestUtils = require('react-addons-test-utils');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import expect from 'expect';
+import $ from 'jquery';
+import TestUtils from 'react-addons-test-utils';
 
-var AddTodo = require('AddTodo');
+import AddTodo from 'AddTodo';
 
 describe('AddTodo', () => {
   it('should exist', () => {
