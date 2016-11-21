@@ -40,4 +40,21 @@ describe('Actions', () => {
     var res = actions.toggleTodo(action.id);
     expect(res).toEqual(action);
   });
+
+  it('should generate add todos action', () => {
+    var todos = [{
+      id: 1,
+      text: 'Do first',
+      completed: false,
+      completedAt: undefined,
+      createdAt: 500
+    }];
+    var action = {
+      type: 'ADD_TODOS',
+      todos
+    };
+
+    var res = actions.addTodos(action.todos);
+    expect(res).toEqual(action);
+  });
 });
