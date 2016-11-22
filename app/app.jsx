@@ -9,14 +9,7 @@ import configureStore from 'store/configureStore';
 import TodoAPI from 'api/TodoAPI';
 var store = configureStore();
 
-store.subscribe(() => {
-  var state = store.getState()
-  console.log('New state', state);
-  TodoAPI.setTodos(state.todos);
-});
-
-var initialTodos = TodoAPI.getTodos();
-store.dispatch(actions.addTodos(initialTodos));
+store.dispatch(actions.startAddTodos());
 
 // Load foundation
 $(document).foundation();
