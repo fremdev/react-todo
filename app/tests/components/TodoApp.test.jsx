@@ -7,7 +7,7 @@ import TestUtils from 'react-addons-test-utils';
 
 import configure from 'store/configureStore';
 import TodoList from 'TodoList';
-import TodoApp from 'TodoApp';
+import {TodoApp} from 'TodoApp';
 
 describe('TodoApp', () => {
   it('should exist', () => {
