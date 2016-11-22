@@ -91,4 +91,23 @@ describe('Reducers', () => {
       expect(res[1]).toEqual(existingTodos[0]);
     });
   });
+
+  describe('authReducer', () => {
+    it('should save uid on login', () => {
+      var action = {
+        type: 'LOGIN',
+        uid: 'ghajsgda87Eww245'
+      };
+      var res = reducers.authReducer(df({}), df(action));
+      expect(res).toEqual({uid: action.uid});
+    });
+
+    it('should clear uid on logout', () => {
+      var action = {
+        type: 'LOGOUT'
+      };
+      var res = reducers.authReducer(df({uid: 'ghajsgda87Eww245'}), df(action));
+      expect(res).toEqual({});
+    });
+  });
 });
